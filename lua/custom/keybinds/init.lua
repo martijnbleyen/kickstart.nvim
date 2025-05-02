@@ -15,9 +15,9 @@ local function toggle_diffview()
   end
 end
 
-vim.keymap.set('n', '<leader>g', toggle_diffview, { desc = 'Toggle Diffview' })
+vim.keymap.set('n', '<leader>g', toggle_diffview, { desc = 'Toggle Diffview', silent = true })
 
 -- Neotree
-vim.keymap.set('n', '<leader>e', [[:Neotree toggle<CR>]], { desc = 'Toggle Neotree' })
+vim.keymap.set('n', '<leader>e', [[:Neotree toggle<CR>]], { desc = 'Toggle Neotree', silent = true })
 
 return {}

@@ -56,7 +56,7 @@ return {
         with_markers = true,
         indent_marker = '│',
         last_indent_marker = '└',
-        indent_size = 1,
+        indent_size = 2,
       },
     },
   },
