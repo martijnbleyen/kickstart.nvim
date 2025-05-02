@@ -12,21 +12,24 @@ return {
   cmd = 'Neotree',
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<PageUp>', ':Neotree reveal source=git_status<CR>', desc = 'NeoTree git_status reveal', silent = true },
   },
   opts = {
     filesystem = {
       window = {
         mappings = {
           ['\\'] = 'close_window',
+          ['<PageUp>'] = 'close_window',
           ['Z'] = 'expand_all_nodes',
+          ['l'] = 'open',
         },
       },
     },
     git_status = {
       window = {
-
         mappings = {
           ['\\'] = 'close_window',
+          ['<PageUp>'] = 'close_window',
           ['Z'] = 'expand_all_nodes',
         },
       },
