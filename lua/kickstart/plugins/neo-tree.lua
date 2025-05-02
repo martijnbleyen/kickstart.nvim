@@ -18,7 +18,42 @@ return {
       window = {
         mappings = {
           ['\\'] = 'close_window',
+          ['Z'] = 'expand_all_nodes',
         },
+      },
+    },
+    git_status = {
+      window = {
+
+        mappings = {
+          ['\\'] = 'close_window',
+          ['Z'] = 'expand_all_nodes',
+        },
+      },
+    },
+    hide_root_node = true,
+    close_if_last_window = true,
+    follow_current_file = true,
+    enable_git_status = true,
+    enable_modified_markers = true,
+    statusline = {
+      enable = false,
+    },
+    window = {
+      width = 50,
+    },
+    nesting_rules = {
+      ['facade-test'] = {
+        pattern = '(.+)%.facade.ts$',
+        files = { '%1.facade.spec.ts' },
+      },
+    },
+    default_component_configs = {
+      indent = {
+        with_markers = true,
+        indent_marker = '│',
+        last_indent_marker = '└',
+        indent_size = 1,
       },
     },
   },
