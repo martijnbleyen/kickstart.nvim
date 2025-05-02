@@ -4,7 +4,6 @@ vim.keymap.set('n', '<leader>bo', [[:%bd|e#|bd#<CR>]], { desc = '[C]lose all [O]
 
 -- Diffview
 -- vim.keymap.set('n', '<PageUp>', [[:DiffviewOpen<CR>]], { desc = 'Open Diffview', silent = true })
-
 local function toggle_diffview()
   local view = require('diffview.lib').get_current_view()
   if view then
@@ -17,5 +16,8 @@ local function toggle_diffview()
 end
 
 vim.keymap.set('n', '<leader>g', toggle_diffview, { desc = 'Toggle Diffview' })
+
+-- Neotree
+vim.keymap.set('n', '<leader>e', [[:Neotree toggle<CR>]], { desc = 'Toggle Neotree' })
 
 return {}
