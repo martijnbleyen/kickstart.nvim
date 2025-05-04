@@ -20,4 +20,7 @@ vim.keymap.set('n', '<leader>g', toggle_diffview, { desc = 'Toggle Diffview', si
 -- Neotree
 vim.keymap.set('n', '<leader>e', [[:Neotree toggle<CR>]], { desc = 'Toggle Neotree', silent = true })
 
+-- Open diagnostic float window
+vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float, { desc = '[D]iagnostic [F]loat', silent = true })
+
 return {}
