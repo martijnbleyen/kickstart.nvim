@@ -938,6 +938,7 @@ require('lazy').setup({
             local search = MiniStatusline.section_searchcount { trunc_width = 75 }
 
             local docker = require('custom.docker-status').get 'owr-node-server'
+            local vpn = require('custom.vpn-status').check()
 
             local function fileinfo_with_icon()
               local name = vim.api.nvim_buf_get_name(0)
@@ -958,7 +959,7 @@ require('lazy').setup({
               '%<', -- Mark general truncate point
               { hl = 'MiniStatuslineFilename', strings = { filename } },
               '%=', -- End left alignment
-              { hl = 'DockerStatus', strings = { docker } },
+              { hl = 'DockerStatus', strings = { vpn, docker } },
               { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
               { hl = mode_hl, strings = { search, location } },
             }

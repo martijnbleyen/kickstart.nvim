@@ -16,7 +16,7 @@ function M.get(container_name)
       local result = handle:read '*a'
       handle:close()
 
-      if result then
+      if result ~= nil and result ~= '' then
         cache.status = '%#StatuslineDockerUp# ● Docker up'
       else
         cache.status = '%#StatuslineDockerDown# ● Docker down'
