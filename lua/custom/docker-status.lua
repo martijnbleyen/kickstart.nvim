@@ -8,15 +8,15 @@ local cache = {
 }
 
 function M.get(container_name)
-  local now = vim.loop.now() / 1000 -- get current time in seconds
+  local currentTime = os.time()
 
-  if (now - cache.last_check) > cache.interval then
+  if (currentTime - cache.last_check) > cache.interval then
     local handle = io.popen('docker ps | grep ' .. container_name .. ' 2>/dev/null')
     if handle then
       local result = handle:read '*a'
       handle:close()
 
-      if result:match 'true' then
+      if result then
         cache.status = '%#StatuslineDockerUp# ● Docker up'
       else
         cache.status = '%#StatuslineDockerDown# ● Docker down'
@@ -25,7 +25,7 @@ function M.get(container_name)
       cache.status = '%#StatuslineDockerDown# Docker ?'
     end
 
-    cache.last_check = now
+    cache.last_check = currentTime
   end
 
   return cache.status
