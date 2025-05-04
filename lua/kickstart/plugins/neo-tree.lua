@@ -16,12 +16,31 @@ return {
   },
   opts = {
     filesystem = {
+      hide_root_node = true,
+      follow_current_file = {
+        enabled = true, -- This is what you need!
+        leave_dirs_open = false, -- Optional: keep parent dirs open
+      },
+      hijack_netrw_behavior = 'open_current',
       window = {
         mappings = {
           ['\\'] = 'close_window',
           ['<PageUp>'] = 'close_window',
           ['Z'] = 'expand_all_nodes',
           ['l'] = 'open',
+
+          ['<leader>sf'] = function(state)
+            local node = state.tree:get_node()
+            local path = node:get_id()
+            local is_directory = node.type == 'directory'
+
+            if not is_directory then
+              path = vim.fn.fnamemodify(path, ':h')
+            end
+
+            vim.notify('Searching in: ' .. path, vim.log.levels.INFO, { title = 'Neo-tree Grep' })
+            require('telescope.builtin').live_grep { search_dirs = { path } }
+          end,
         },
       },
     },
@@ -34,9 +53,7 @@ return {
         },
       },
     },
-    hide_root_node = true,
     close_if_last_window = true,
-    follow_current_file = true,
     enable_git_status = true,
     enable_modified_markers = true,
     statusline = {
