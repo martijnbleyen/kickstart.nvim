@@ -23,4 +23,10 @@ vim.keymap.set('n', '<leader>e', [[:Neotree toggle<CR>]], { desc = 'Toggle Neotr
 -- Open diagnostic float window
 vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float, { desc = '[D]iagnostic [F]loat', silent = true })
 
+-- Save file
+vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file', silent = true })
+
+-- Exit insert mode with jj
+vim.keymap.set('i', 'jj', '<Esc>', { desc = 'Exit insert mode', silent = true })
+
 return {}

@@ -20,7 +20,7 @@ local function open_floating_term(cmd)
 end
 
 vim.api.nvim_create_user_command('PRStatus', function()
-  open_floating_term '~/code/gh-pr-checker/pr-status'
+  open_floating_term '/Users/martijnbleyen/code/gh-pr-checker/pr-status'
 end, {})
 
 vim.keymap.set('n', '<leader>pr', ':PRStatus<CR>', { desc = 'GitHub PR Status' })
